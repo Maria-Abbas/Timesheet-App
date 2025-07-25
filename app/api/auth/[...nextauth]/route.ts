@@ -11,11 +11,11 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials): Promise<User | null> {
         if (
-          credentials?.email === "maria@gmail.com" &&  // check email instead of username
+          credentials?.email === "maria@gmail.com" && 
           credentials?.password === "1234"
         ) {
           const user: User = {
-            id: "1",                   // id must be string
+            id: "1",                  
             name: "Maria Abbas",
             email: "maria@gmail.com",
           };

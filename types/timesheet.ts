@@ -1,12 +1,18 @@
 export interface WeeklyTimesheet {
   weekNo: number;
-  dateRange: string; // e.g., "1-5 January, 2024"
+  dateRange: string;
+  hours: number;
   status: "completed" | "incomplete" | "missing";
-  action: "view" | "update" | "create"; // derived from status
+  action: "view" | "update" | "create";
+}
+
+export interface Task {
+  task: string;
+  project: string;
+  hours: number;
 }
 
 export interface DayTask {
-  date: string;    // e.g., "1st Jan"
-  task: string;    // e.g., "Home Page Development"
-  project: string; // e.g., "ABC Project"
+  date: string;     
+  tasks: Task[]; 
 }
