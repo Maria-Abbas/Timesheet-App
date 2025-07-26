@@ -32,11 +32,11 @@ export const weekDetails: Record<number, DayTask[]> = {
     },
     {
       date: "4th Jan",
-      tasks: [{ task: "Client Meeting", project: "ABC Project", hours: 4 }],
+      tasks: [{ task: "Client Meeting", project: "ABC Project", hours: 6 }],
     },
     {
       date: "5th Jan",
-      tasks: [{ task: "Documentation", project: "ABC Project", hours: 4 }],
+      tasks: [{ task: "Documentation", project: "ABC Project", hours: 8 }],
     },
   ],
   2: [
@@ -46,7 +46,7 @@ export const weekDetails: Record<number, DayTask[]> = {
     },
     {
       date: "9th Jan",
-      tasks: [{ task: "Code Review", project: "Finance App", hours: 4 }],
+      tasks: [{ task: "Code Review", project: "Finance App", hours: 8 }],
     },
     {
       date: "10th Jan",
@@ -58,7 +58,7 @@ export const weekDetails: Record<number, DayTask[]> = {
     },
     {
       date: "12th Jan",
-      tasks: [{ task: "Team Meeting", project: "Finance App", hours: 4 }],
+      tasks: [{ task: "Team Meeting", project: "Finance App", hours: 8 }],
     },
   ],
   3: [
@@ -90,11 +90,11 @@ export const weekDetails: Record<number, DayTask[]> = {
   5: [
     {
       date: "28th Jan",
-      tasks: [{ task: "Performance Optimization", project: "Mobile App", hours: 6 }],
+      tasks: [],
     },
-    { date: "29th Jan", tasks: [{ task: "Client Feedback Review", project: "Mobile App", hours: 0 }] },
-    { date: "30th Jan", tasks: [{ task: "Bug Fixes", project: "Mobile App", hours: 0 }] },
-    { date: "31st Jan", tasks: [{ task: "Testing", project: "Mobile App", hours: 0 }] },
-    { date: "1st Feb", tasks: [{ task: "Client Meeting", project: "Mobile App", hours: 2 }] },
+    { date: "29th Jan", tasks: [] },
+    { date: "30th Jan", tasks: [] },
+    { date: "31st Jan", tasks: [] },
+    { date: "1st Feb", tasks: [] },
   ],
 };

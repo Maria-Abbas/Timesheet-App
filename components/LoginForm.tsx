@@ -55,12 +55,11 @@ export default function LoginForm() {
       className="w-full max-w-md space-y-6"
       noValidate
     >
-      <h2 className="text-3xl font-semibold mb-8">Sign in to your account</h2>
+      <h2 className="text-3xl font-semibold mb-8">Welcome Back</h2>
 
-      {/* Email field */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-1">
-          Email address
+          Email
         </label>
         <input
           type="email"
@@ -71,10 +70,11 @@ export default function LoginForm() {
             emailError ? "border-red-500" : "border-gray-300"
           }`}
         />
-        {emailError && <p className="text-red-600 text-sm mt-1">{emailError}</p>}
+        {emailError && (
+          <p className="text-red-600 text-sm mt-1">{emailError}</p>
+        )}
       </div>
 
-      {/* Password field */}
       <div>
         <label htmlFor="password" className="block text-sm font-medium mb-1">
           Password
@@ -93,7 +93,6 @@ export default function LoginForm() {
         )}
       </div>
 
-      {/* Remember Me */}
       <div className="flex items-center space-x-2">
         <input
           type="checkbox"
@@ -107,15 +106,15 @@ export default function LoginForm() {
         </label>
       </div>
 
-      {/* Global Error message */}
       {error && <p className="text-red-600 text-sm font-medium">{error}</p>}
 
-      {/* Submit button */}
       <button
         type="submit"
         disabled={loading}
         className={`w-full py-2 rounded text-white transition ${
-          loading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+          loading
+            ? "bg-blue-300 cursor-not-allowed"
+            : "bg-blue-600 hover:bg-blue-700"
         }`}
       >
         {loading ? "Signing in..." : "Sign In"}
