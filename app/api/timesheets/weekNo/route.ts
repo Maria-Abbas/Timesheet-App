@@ -3,9 +3,9 @@ import { weekDetails } from "@/mocks/timesheets";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { weekNo: string } }
+  context: { params: { [key: string]: string } }
 ) {
-  const weekNo = Number(params.weekNo);
+  const weekNo = Number(context.params.weekNo);
   const data = weekDetails[weekNo];
 
   if (!data) {
