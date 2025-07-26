@@ -11,14 +11,14 @@ const handler = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      // NOTE: keep the second param to satisfy some next-auth typings
+      
       async authorize(credentials) {
         if (!credentials) return null;
 
         const { email, password } = credentials;
 
         if (email === "maria@gmail.com" && password === "1234") {
-          // id as string to match NextAuth's default User type
+        
           return { id: "1", name: "Maria Abbas", email };
         }
 
