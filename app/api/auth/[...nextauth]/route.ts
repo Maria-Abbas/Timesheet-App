@@ -1,38 +1,33 @@
-import NextAuth, { type NextAuthOptions, type User } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
+
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+
+const handler = NextAuth({
   providers: [
-    CredentialsProvider({
+    Credentials({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "maria@gmail.com" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials): Promise<User | null> {
-        if (
-          credentials?.email === "maria@gmail.com" && 
-          credentials?.password === "1234"
-        ) {
-          const user: User = {
-            id: "1",                  
-            name: "Maria Abbas",
-            email: "maria@gmail.com",
-          };
-          return user;
+      // NOTE: keep the second param to satisfy some next-auth typings
+      async authorize(credentials) {
+        if (!credentials) return null;
+
+        const { email, password } = credentials;
+
+        if (email === "maria@gmail.com" && password === "1234") {
+          // id as string to match NextAuth's default User type
+          return { id: "1", name: "Maria Abbas", email };
         }
+
         return null;
       },
     }),
   ],
-  session: {
-    strategy: "jwt",
-  },
-  pages: {
-    signIn: "/",
-  },
-};
-
-const handler = NextAuth(authOptions);
+  session: { strategy: "jwt" },
+  secret: process.env.NEXTAUTH_SECRET,
+});
 
 export { handler as GET, handler as POST };
